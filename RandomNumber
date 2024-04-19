@@ -1,0 +1,23 @@
+import random
+
+def roll_dice():
+  return random.randint(1, 6)
+
+def main():
+  total_score = 0
+  while True:
+    static_number = int(input("Enter a static number between 1 and 6: "))
+    dice_roll = roll_dice()
+    print(f"You rolled a {dice_roll}")
+    if static_number == dice_roll:
+      total_score += 10
+      print("You win! Your total score is {total_score}.")
+    else:
+      print("Sorry, you lose! your total score is {total_score}.")
+
+    play_again = input("Would you like to play again? (y/n) ")
+    if play_again.lower() != "y":
+      break
+
+if _name_ == "_main_":
+    main()
