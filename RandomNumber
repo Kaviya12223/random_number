@@ -1,23 +1,28 @@
-import random
+#include <iostream>
+#include <ctime>
+using namespace std;
 
-def roll_dice():
-  return random.randint(1, 6)
+int main() {
+    srand(time(0));
+    int num = (rand() % 6) + 1;  // Random number between 1 and 6
+    int input;
 
-def main():
-  total_score = 0
-  while True:
-    static_number = int(input("Enter a static number between 1 and 6: "))
-    dice_roll = roll_dice()
-    print(f"You rolled a {dice_roll}")
-    if static_number == dice_roll:
-      total_score += 10
-      print("You win! Your total score is {total_score}.")
-    else:
-      print("Sorry, you lose! your total score is {total_score}.")
+    cout << "Enter a number between 1 to 6:" << endl;
 
-    play_again = input("Would you like to play again? (y/n) ")
-    if play_again.lower() != "y":
-      break
+    do {
+        cin >> input;
 
-if _name_ == "_main_":
-    main()
+        if (input >= 1 && input <= 6) {
+            if (input == num) {
+                cout << "You won! The number is " << num << endl;
+                break;  // Exit the loop if the number matches
+            } else {
+                cout << "Try again!" << endl;
+            }
+        } else {
+            cout << "Not a valid input. Enter a number between 1 and 6." << endl;
+        }
+    } while (true);
+
+    return 0;
+}
